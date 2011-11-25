@@ -51,7 +51,7 @@ class DeutscheZahlen extends System
 	{
 		if ($strRegexp == 'dezimal')
 		{
-			if (!preg_match('/^[\d \,-]*$/', $varInput))
+			if (!preg_match('/^[\d \,-]*$/', $varValue))
 			{
 				$this->addError(sprintf($GLOBALS['TL_LANG']['ERR']['digit'], $this->strLabel));
 			}
