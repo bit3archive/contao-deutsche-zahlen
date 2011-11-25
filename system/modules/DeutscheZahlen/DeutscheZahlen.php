@@ -37,6 +37,10 @@
  * Class DeutscheZahlen
  *
  * Replaces all digit field with dezimal fields.
+ *
+ * @copyright  InfinitySoft 2011
+ * @author     Tristan Lins <tristan.lins@infinitysoft.de>
+ * @package    DeutscheZahlen
  */
 class DeutscheZahlen extends System
 {
