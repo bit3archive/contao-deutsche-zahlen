@@ -59,17 +59,19 @@ class DeutscheZahlen extends System
 		}
 		return false;
 	}
-	
-	
+
+
 	/**
 	 * Add the onload callback to a loaded data container.
 	 */
 	public function hookLoadDataContainer($strName)
 	{
-		$GLOBALS['TL_DCA'][$strName]['config']['onload_callback'][] = array('DeutscheZahlen', 'onload_callback');
+		if (TL_MODE == 'BE') {
+			$GLOBALS['TL_DCA'][$strName]['config']['onload_callback'][] = array('DeutscheZahlen', 'onload_callback');
+		}
 	}
-	
-	
+
+
 	/**
 	 * Replace all digit fields with dezimal and add the save and load callbacks.
 	 */
@@ -88,8 +90,8 @@ class DeutscheZahlen extends System
 			}
 		}
 	}
-	
-	
+
+
 	/**
 	 * Save a dezimal by converting it into a digit value.
 	 */
@@ -97,8 +99,8 @@ class DeutscheZahlen extends System
 	{
 		return str_replace(',', '.', $strValue);
 	}
-	
-	
+
+
 	/**
 	 * Load a dezimal by converting it from a digit value.
 	 */
