@@ -36,5 +36,5 @@
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['addCustomRegexp'][] = array('DeutscheZahlen', 'hookAddCustomRegexp');
+$GLOBALS['TL_HOOKS']['addCustomRegexp'][]   = array('DeutscheZahlen', 'hookAddCustomRegexp');
 $GLOBALS['TL_HOOKS']['loadDataContainer'][] = array('DeutscheZahlen', 'hookLoadDataContainer');
