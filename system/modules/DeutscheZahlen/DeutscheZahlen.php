@@ -45,6 +45,24 @@
 class DeutscheZahlen extends System
 {
 	/**
+	 * @var DeutscheZahlen
+	 */
+	protected static $objInstance = null;
+
+	/**
+	 * Get singleton object.
+	 *
+	 * @return DeutscheZahlen
+	 */
+	public static function getInstance()
+	{
+		if (self::$objInstance === null) {
+			self::$objInstance = new DeutscheZahlen();
+		}
+		return self::$objInstance;
+	}
+
+	/**
 	 * Add the custom regexp "dezimal" to Contao.
 	 */
 	public function hookAddCustomRegexp($strRegexp, $varValue, Widget $objWidget)
