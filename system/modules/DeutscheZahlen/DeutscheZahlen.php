@@ -108,12 +108,8 @@ class DeutscheZahlen extends System
 					else {
 						$GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['save_callback'][] = array('DeutscheZahlen', 'save_dezimal');
 					}
-					if ($GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['load_callback']) {
-						array_unshift($GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['load_callback'], array('DeutscheZahlen', 'load_dezimal'));
-					}
-					else {
-						$GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['load_callback'][] = array('DeutscheZahlen', 'load_dezimal');
-					}
+					
+					$GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['load_callback'][] = array('DeutscheZahlen', 'load_dezimal');
 				}
 			}
 		}
