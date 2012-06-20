@@ -38,3 +38,4 @@
  */
 $GLOBALS['TL_HOOKS']['addCustomRegexp'][]   = array('DeutscheZahlen', 'hookAddCustomRegexp');
 $GLOBALS['TL_HOOKS']['loadDataContainer'][] = array('DeutscheZahlen', 'hookLoadDataContainer');
+$GLOBALS['TL_HOOKS']['getCatalogDca'][]     = array('DeutscheZahlen', 'hookCatalogDca');

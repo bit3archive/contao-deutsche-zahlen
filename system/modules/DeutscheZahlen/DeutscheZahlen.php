@@ -117,6 +117,37 @@ class DeutscheZahlen extends System
 
 
 	/**
+	 *
+	 */
+	public function hookCatalogDca($objFields, &$dca, $objCatalog, $objModuleCatalog)
+	{
+		if (TL_MODE == 'FE') {
+			if (!isset($GLOBALS['BE_MOD']['content']['catalog']['fieldTypes']['dezimal'])) {
+				$GLOBALS['BE_MOD']['content']['catalog']['fieldTypes']['dezimal'] = array
+				(
+					'fieldDef'     => array
+					(
+						'inputType' => 'text',
+						'eval'      => array('rgxp' => 'dezimal'),
+						'load_callback' => array(array('DeutscheZahlen', 'load_dezimal')),
+						'save_callback' => array(array('DeutscheZahlen', 'save_dezimal'))
+					)
+				);
+			}
+
+			foreach ($dca['fields'] as $strField=>$arrField)
+			{
+				if (isset($arrField['eval']) && isset($arrField['eval']['rgxp']) && $arrField['eval']['rgxp']=='digit')
+				{
+					$dca['fields'][$strField]['eval']['rgxp']            = 'dezimal';
+					$dca['fields'][$strField]['eval']['catalog']['type'] = 'dezimal';
+				}
+			}
+		}
+	}
+
+
+	/**
 	 * Save a dezimal by converting it into a digit value.
 	 */
 	public function save_dezimal($strValue)
