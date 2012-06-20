@@ -102,8 +102,18 @@ class DeutscheZahlen extends System
 				if (isset($arrField['eval']) && isset($arrField['eval']['rgxp']) && $arrField['eval']['rgxp']=='digit')
 				{
 					$GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['eval']['rgxp'] = 'dezimal';
-					$GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['save_callback'][] = array('DeutscheZahlen', 'save_dezimal');
-					$GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['load_callback'][] = array('DeutscheZahlen', 'load_dezimal');
+					if (is_array($GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['save_callback'])) {
+						array_unshift($GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['save_callback'], array('DeutscheZahlen', 'save_dezimal'));
+					}
+					else {
+						$GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['save_callback'][] = array('DeutscheZahlen', 'save_dezimal');
+					}
+					if ($GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['load_callback']) {
+						array_unshift($GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['load_callback'], array('DeutscheZahlen', 'load_dezimal'));
+					}
+					else {
+						$GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['load_callback'][] = array('DeutscheZahlen', 'load_dezimal');
+					}
 				}
 			}
 		}
