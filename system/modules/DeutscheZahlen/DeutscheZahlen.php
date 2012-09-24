@@ -95,7 +95,9 @@ class DeutscheZahlen extends System
 	 */
 	public function onload_callback($dc)
 	{
-		if (isset($GLOBALS['TL_DCA'][$dc->table]))
+		if (isset($GLOBALS['TL_DCA'][$dc->table]) &&
+			isset($GLOBALS['TL_DCA'][$dc->table]['fields']) &&
+			is_array($GLOBALS['TL_DCA'][$dc->table]['fields']))
 		{
 			foreach ($GLOBALS['TL_DCA'][$dc->table]['fields'] as $strField=>$arrField)
 			{
@@ -108,7 +110,7 @@ class DeutscheZahlen extends System
 					else {
 						$GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['save_callback'][] = array('DeutscheZahlen', 'save_dezimal');
 					}
-					
+
 					$GLOBALS['TL_DCA'][$dc->table]['fields'][$strField]['load_callback'][] = array('DeutscheZahlen', 'load_dezimal');
 				}
 			}
