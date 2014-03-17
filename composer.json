@@ -1,0 +1,36 @@
+{
+	"name": "bit3/contao-deutsche-zahlen",
+	"type": "contao-module",
+	"description": "German numbers support for Contao Open Source CMS",
+	"keywords": ["contao", "german numbers"],
+	"license": "LGPLv3",
+	"authors": [
+		{
+			"name":"Tristan Lins",
+			"email":"tristan.lins@bit3.de",
+			"homepage":"http://bit3.de",
+			"role":"Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.4",
+		"contao/core": ">=2.11",
+		"contao-community-alliance/composer-installer": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Bit3\\Contao\\DeutscheZahlen\\": "src"
+		}
+	},
+	"extra": {
+		"contao": {
+			"sources": {
+				"module": "system/modules/DeutscheZahlen"
+			}
+		},
+		"branch-alias": {
+			"dev-master": "1.2.x-dev",
+			"dev-develop": "1.3.x-dev"
+		}
+	}
+}

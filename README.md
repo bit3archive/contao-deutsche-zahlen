@@ -1,6 +1,8 @@
-# [DeutscheZahlen] German numbers support for Contao
+German numbers support for Contao
+=================================
 
-Add a new rgxp **dezimal** that support german numbers format (comma instead of dot).
+Add a new rgxp **dezimal** that support german numbers format
+(use comma instead of dot as separator for the decimal point).
 
-Dynamically replace all **digit** rgxp fields with **dezimal** rgxp.
-
+Automatically replace all **digit** rgxp fields with **dezimal** rgxp,
+if the used language is german.
