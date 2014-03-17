@@ -17,6 +17,9 @@
 		"contao/core": ">=2.11",
 		"contao-community-alliance/composer-installer": "*"
 	},
+	"replace": {
+		"contao-legacy/deutschezahlen": "self.version"
+	},
 	"autoload": {
 		"psr-4": {
 			"Bit3\\Contao\\DeutscheZahlen\\": "src"
